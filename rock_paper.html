@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rock Paper Scissors</title>
+    <!--use just the brands and solid styles-->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+  </head>
+  <body>
+    <div class="header">
+      <h2>Rock Paper Scissors</h2>
+      <h1></h1>
+
+    </div>
+
+    <div class='tally'>
+      <h2>Player</h2>
+      <h4 class='player-score'></h4>
+      <h2>Computer</h2>
+      <h4 class='computer-score'></h4>
+    </div>
+
+    <div class="user-input">
+      <h4>Pick your weapon</h4>
+      <input type="button" class="far fa-hand-rock" onClick="rock()">
+      <input type="button" class="far fa-hand-paper" onClick="paper()">
+      <input type="button" class="far fa-hand-scissors" onClick="scissors()">
+      
+
+    </div>
+
+    <div class="result">
+      <p></p>
+      <h3></h3>
+    </div>
+
+    <script>
+      let input = document.querySelector('.input');
+      let para = document.querySelector('h3');
+      let comp_choice = document.querySelector('p');
+      let uScore = document.querySelector('.player-score');
+      let cScore = document.querySelector('.computer-score');
+      let win = document.querySelector('h1');
+      
+      let user_win = "You Win!";
+      let comp_win = "Computer Wins!";
+      let tie = "You Tied!";
+
+      let userScore = 0;
+      let compScore = 0;
+
+
+
+      function rock() {
+        let comp = ['Rock', 'Paper', 'Scissors'][Math.floor(Math.random() * 3)];
+        comp_choice.textContent = comp;
+        if (comp == 'Paper') {
+          para.textContent = comp_win;
+          compScore++;
+        } else if (comp == 'Scissors') {
+          para.textContent = user_win;
+          userScore++;
+        } else {
+          para.textContent = tie;
+        }
+        uScore.textContent = userScore;
+        cScore.textContent = compScore;
+      }
+
+      function paper() {
+        let comp = ['Rock', 'Paper', 'Scissors'][Math.floor(Math.random() * 3)];
+        comp_choice.textContent = comp;
+        if (comp == 'Rock') {
+          para.textContent = user_win;
+          userScore++;
+        } else if (comp == 'Scissors') {
+          para.textContent = comp_win;
+          compScore++;
+        } else {
+          para.textContent = tie;
+        }
+        uScore.textContent = userScore;
+        cScore.textContent = compScore;
+      }
+
+      function scissors() {
+        let comp = ['Rock', 'Paper', 'Scissors'][Math.floor(Math.random() * 3)];
+        comp_choice.textContent = comp;
+        if (comp == 'Rock') {
+          para.textContent = comp_win;
+          compScore++;
+        } else if (comp == 'Paper') {
+          para.textContent = user_win;
+          userScore++;
+        } else {
+          para.textContent = tie;
+        }
+        uScore.textContent = userScore;
+        cScore.textContent = compScore;
+      }
+
+      if (userScore == 5) {
+        win.textContent = "YOU WIN!";
+      } else if (compScore == 5) {
+        win.textContent = "COMPUTER WINS!";
+      }
+
+
+      
+
+    </script>
+
+  </body>
+
+</html>
+
+<!-- var result = ['January', 'February', 'March'][Math.floor(Math.random() * 3)] -->
