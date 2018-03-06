@@ -8,7 +8,7 @@
   <body>
     <div class="header">
       <h2>Rock Paper Scissors</h2>
-      <h1></h1>
+      <h1 class='winner'></h1>
 
     </div>
 
@@ -39,7 +39,7 @@
       let comp_choice = document.querySelector('p');
       let uScore = document.querySelector('.player-score');
       let cScore = document.querySelector('.computer-score');
-      let win = document.querySelector('h1');
+      let win = document.querySelector('.winner');
       
       let user_win = "You Win!";
       let comp_win = "Computer Wins!";
@@ -47,7 +47,32 @@
 
       let userScore = 0;
       let compScore = 0;
+      
+      uScore.textContent = userScore;
+      cScore.textContent = compScore;
+      
 
+      function score(k) {
+        if (k == 'u') {
+          userScore++;
+          uScore.textContent = userScore;
+          if (userScore == 5) {
+            win.textContent = "YOU WIN!!";
+            userScore = 0;
+            compScore = 0;
+          }
+        } else if (k == 'c') {
+          compScore++;
+          cScore.textContent = compScore;
+          if (compScore == 5) {
+            win.textContent = "COMPUTER WINS!!";
+            userScore = 0;
+            compScore = 0;
+          }
+        }
+        uScore.textContent = userScore;
+        cScore.textContent = compScore;
+      }
 
 
       function rock() {
@@ -55,15 +80,13 @@
         comp_choice.textContent = comp;
         if (comp == 'Paper') {
           para.textContent = comp_win;
-          compScore++;
+          score('c');
         } else if (comp == 'Scissors') {
           para.textContent = user_win;
-          userScore++;
+          score('u');
         } else {
           para.textContent = tie;
         }
-        uScore.textContent = userScore;
-        cScore.textContent = compScore;
       }
 
       function paper() {
@@ -71,15 +94,13 @@
         comp_choice.textContent = comp;
         if (comp == 'Rock') {
           para.textContent = user_win;
-          userScore++;
+          score('u');
         } else if (comp == 'Scissors') {
           para.textContent = comp_win;
-          compScore++;
+          score('c');
         } else {
           para.textContent = tie;
         }
-        uScore.textContent = userScore;
-        cScore.textContent = compScore;
       }
 
       function scissors() {
@@ -87,23 +108,14 @@
         comp_choice.textContent = comp;
         if (comp == 'Rock') {
           para.textContent = comp_win;
-          compScore++;
+          score('c');
         } else if (comp == 'Paper') {
           para.textContent = user_win;
-          userScore++;
+          score('u');
         } else {
           para.textContent = tie;
         }
-        uScore.textContent = userScore;
-        cScore.textContent = compScore;
       }
-
-      if (userScore == 5) {
-        win.textContent = "YOU WIN!";
-      } else if (compScore == 5) {
-        win.textContent = "COMPUTER WINS!";
-      }
-
 
       
 
