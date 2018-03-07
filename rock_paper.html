@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Rock Paper Scissors</title>
+    <link href="rock_paper.css" rel="stylesheet">
     <!--use just the brands and solid styles-->
     <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
   </head>
@@ -13,24 +14,31 @@
     </div>
 
     <div class='tally'>
-      <h2>Player</h2>
-      <h4 class='player-score'></h4>
-      <h2>Computer</h2>
-      <h4 class='computer-score'></h4>
+      <div class='player-box'>
+        <h2 class='box-title'>Player</h2>
+        <h4 class='player-score'></h4>
+      </div>
+      <div class='computer-box'>
+        <h2 class='box-title'>Computer</h2>
+        <h4 class='computer-score'></h4>
+      </div>
     </div>
 
-    <div class="user-input">
-      <h4>Pick your weapon</h4>
-      <input type="button" class="far fa-hand-rock" onClick="rock()">
-      <input type="button" class="far fa-hand-paper" onClick="paper()">
-      <input type="button" class="far fa-hand-scissors" onClick="scissors()">
-      
+    <div class='input-box'>
+      <div class="user-input">
+        <h4>Pick your weapon</h4>
+        <div class='icons'>
+          <input type="button" class="far fa-hand-rock" onClick="rock()">
+          <input type="button" class="far fa-hand-paper" onClick="paper()">
+          <input type="button" class="far fa-hand-scissors" onClick="scissors()">
+        </div>
 
-    </div>
+      </div>
 
-    <div class="result">
-      <p></p>
-      <h3></h3>
+      <div class="result">
+        <p></p>
+        <h3></h3>
+      </div>
     </div>
 
     <script>
